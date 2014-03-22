@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title NWP Badges Prototype
+    = favicon_link_tag '/favicon.ico'
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'http://beta.openbadges.org/issuer.js'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    %h1.title= link_to 'NWP Badges Prototype', badges_path
+    - flash.each do |name, msg|
+      .flash
+        - if not msg.nil?
+          - if msg.is_a?(String)
+            %div{:class => "alert alert-#{name == :notice ? "success" : "warning"}"}
+              %a.close{"data-dismiss" => "alert"} x
+              = content_tag :div, msg, :id => "flash_#{name}"
+     
+    = yield

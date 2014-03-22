@@ -1,0 +1,16 @@
+#container
+  .header-container.row
+    %h1 Create a Submission for #{@badge.name}
+  .content.row
+    .left-column-container.column.col-md-3
+      %h2 Admin
+      %ul
+        
+      %h2 Menu
+      %ul
+        %li= link_to('Back to badge page', badge_path(@badge), :method => :get)
+    .right-column-container.column.col-md-8
+      = image_tag @badge.image.url(:medium)
+      %h3 Description:
+      %p#description= @badge.description
+      = render :partial => 'submit_form'

@@ -1,0 +1,29 @@
+Features:
+- accept other forms of media for evidence
+- color code for status (approved => green, pending => yellow, rejected => red)
+- in place editing of information
+- resubmission protocol, back and forth conversation
+- send email on approve/reject
+  reject => reasons why, link for more evidence
+  approve => link to push to backpack
+- sort by ascending / descending
+- submission editing
+
+Layout/Look:
+- allow flash messages to be closed
+- badge earners displayed underneath badges more prominently, similar to P2PU
+- bootstrap
+- drop down menu for actions
+
+Security: 
+- add filters to controllers
+- add validation logic to models
+- attr_accessible (remove :status, :date), attr_protected
+- hash email / user info in assertions
+- protected, prevent method from being invoked by route
+- replace create!, save!, update_attributes! with non !, add conditionals
+- success/failure routes for non-valid/valid entries, redirect/render with appropriate notices/warnings
+- user login page
+
+Miscellaneous:
+- host on nwp.org

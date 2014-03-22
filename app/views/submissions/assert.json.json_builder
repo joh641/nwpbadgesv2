@@ -1,0 +1,13 @@
+uid @submission.badge.name
+recipient do
+  identity @submission.email
+  type "email"
+  hashed false
+end
+badge "http://nwpbadges.herokuapp.com/badges/#{@submission.badge.id}/assert.json"
+verify do
+  type "hosted"
+  url "http://nwpbadges.herokuapp.com/submissions/#{@submission.id}/assert.json"
+end
+issuedOn @submission.date.to_i
+evidence "http://nwpbadges.herokuapp.com/submissions/#{@submission.id}"

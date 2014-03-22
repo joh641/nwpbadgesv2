@@ -1,0 +1,21 @@
+#container
+  .header-container.row
+    %h1 All Badges
+  .content.row
+    .left-column-container.column.col-md-3
+      %h2 Admin
+      %ul
+        %li= link_to('Add new badge', new_badge_path)
+        %li= link_to('View all submissions', submissions_path)
+      %h2 Menu
+      %ul
+        
+    .right-column-container.column.container.col-md-8
+      - @badges.each do |badge|
+        .col-md-3
+          .badge-container
+            .badge-info
+              .image= link_to(image_tag(badge.image.url(:medium)), badge_path(badge))
+              .title= badge.name
+              - if badge.claimcode && badge.claimcode != ""
+                .claimcode= render :partial => 'claim_code', :locals => {:badge => badge}

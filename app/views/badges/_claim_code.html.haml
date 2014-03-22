@@ -1,0 +1,4 @@
+= form_tag badges_path(), :method => :get, class: "claim_form" do
+  = text_field(:claim, :claimcode, :size => 20)
+  = hidden_field_tag :badge, badge.name
+  = submit_tag 'Enter Claim Code', class: "claim_code_submit"

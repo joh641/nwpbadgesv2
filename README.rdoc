@@ -1,0 +1,54 @@
+== NWP Badges: Mozilla Open Badges Management
+
+NWP Badges simplifies interaction with Mozilla's Open Badges Infrastructure by allowing users
+to easily create and edit badges, accept and approve/reject submissions, and push badges to 
+Mozilla Backpacks.
+
+== Badge Management
+
+Admins can create new badges or edit/delete existing ones. This includes badge name, description, image, and claim code
+(see below for more details on claim codes). The badge earners can also be displayed.
+
+== Submission Management
+
+For badges without claim codes, users can make submissions by giving their name, email, and evidence as to why they've
+earned a particular badge. Admins can then approve or reject these submissions. For badges with claim codes, users can 
+enter the claim code to earn that badge. This automatically generates an approved submission for that badge with the name
+and email the user entered and the evidence field stating that the badge was earned through a claim code.
+
+== Issuing Badges
+
+When a submission is approved, a link to push the badge to the user's Mozilla Backpack appears. This link can be given
+to the user, which they can then use to earn the badge.
+
+== Under the Hood
+
+Mozilla's Open Badges Infrastructure relies on JSON assertions to verify badge information. NWP Badges saves information
+on badges and submissions to a database. It then pulls from that database to render the required JSON assertions. These
+JSON assertions are then used in a single API call to Mozilla Open Badges:
+
+    OpenBadges.issue(['SITEURL/submissions/#{@submission.id}/assert.json'], function(errors, successes) {});
+    
+This call points to the JSON assertion for a particular submission, which in turn points to a JSON assertion for a 
+particular badge, which in turn points to a static JSON assertion for the issuing organization (in this case NWP).
+
+Models
+
+  badge.rb, Badge has many submissions
+  submission.rb, Submission belongs to a Badge
+  
+Controllers
+
+  badges_controller.rb, controls badge actions such as create, edit, assert
+  submissions_controller.rb, controls submission actions such as create, assert, push
+  
+Views
+
+  badges/*, views for displaying badge information
+  submissions/*, views for display submission information
+
+== For More Information
+
+Mozilla Open Badges - http://www.openbadges.org
+
+National Writing Project - http://www.nwp.org

@@ -1,0 +1,24 @@
+#container
+  .header-container.row
+    %h1 All Submissions
+  .content.row
+    .left-column-container.column.col-md-3
+      %h2 Admin
+      %ul
+        
+      %h2 Menu
+      %ul
+        %li= link_to('Back to main page', badges_path)
+    .right-column-container.column.container.col-md-8
+      %table#submissions
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Badge
+            %th Date
+            %th Status
+            %th More Info
+            %th Action
+          %tbody
+            = render :partial => 'submission', :collection => @submissions
