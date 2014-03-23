@@ -4,7 +4,7 @@
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 All Submissions
-      %table#submissions
+      %table#submissions.table
         %thead
           %tr
             %th Name
@@ -14,5 +14,5 @@
             %th Status
             %th Info
             %th Action
-        %tbody
+        .body
           = render :partial => 'submission', :collection => @submissions

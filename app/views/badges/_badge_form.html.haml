@@ -1,11 +1,16 @@
-#name
-  = label :badge, :name, 'Name'
-  = text_field :badge, :name
-#description
-  = label :badge, :description, 'Description'
-  = text_area :badge, :description
-#claimcode
-  = label :badge, :claimcode, 'Claim Code'
-  = text_field :badge, :claimcode
-#image
-  = file_field :badge, :image
+#name.form-group
+  = label :badge, :name, 'Name', :class => "control-label reserve-label"
+  .reserve-input
+    = text_field :badge, :name
+#image.form-group
+  = label :badge, :image, 'Image', :class => "control-label reserve-label"
+  .reserve-input
+    = file_field :badge, :image
+#description.form-group
+  = label :badge, :description, 'Description', :class => "control-label reserve-label"
+  .reserve-input
+    = text_area :badge, :description
+#claimcode.form-group
+  = label :badge, :claimcode, 'Claim Code', :class => "control-label reserve-label"
+  .reserve-input
+    = text_field :badge, :claimcode

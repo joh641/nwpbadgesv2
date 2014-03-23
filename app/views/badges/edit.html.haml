@@ -6,4 +6,5 @@
         %h1 Edit Badge
       = form_tag badge_path(@badge), :method => :put, :multipart => true do
         = render :partial => "badge_form"
-        = submit_tag 'Save Changes', :class => "btn btn-primary"
+        #submit
+          = submit_tag 'Save Changes', :class => "btn btn-primary"

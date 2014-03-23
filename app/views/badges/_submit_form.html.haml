@@ -1,7 +1,9 @@
 = form_tag submissions_path do
   #badge
     = hidden_field_tag :badge, @badge.id
-  #description
-    = label :submission, :description, 'Evidence'
-    = text_area :submission, :description
-  = submit_tag 'Submit', :class => "btn btn-primary"
+  #description.form-group
+    = label :submission, :description, 'Evidence', :class => "control-label reserve-label"
+    .reserve-input
+      = text_area :submission, :description
+  #submit
+    = submit_tag 'Submit', :class => "btn btn-primary"

@@ -15,6 +15,7 @@
       %h3
       - if @badge.claimcode && @badge.claimcode != "" && signed_in?
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
+      %hr
       - if signed_in? && (!@badge.claimcode || @badge.claimcode == "")
         = link_to('Make a submission', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
       - if is_admin?

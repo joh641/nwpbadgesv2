@@ -2,7 +2,8 @@ class Badge < ActiveRecord::Base
   
   attr_accessible :name, :image, :description, :claimcode
 
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
+  has_many :users, through: :submissions
   has_attached_file :image,
                     :storage => :s3,
                     :s3_credentials => S3_CREDENTIALS,

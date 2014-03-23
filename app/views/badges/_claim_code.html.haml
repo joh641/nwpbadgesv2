@@ -1,4 +1,7 @@
 = form_tag claim_badge_path(badge), :method => :post, class: "claim_form" do
-  = text_field(:claim, :claimcode, :size => 20)
+  #claimcode.form-group
+    .reserve-input
+      = text_field(:claim, :claimcode, :size => 20)
   = hidden_field_tag :badge, badge.id
-  = submit_tag 'Enter Claim Code', class: "claim_code_submit", :class => "btn btn-primary"
+  #submit
+    = submit_tag 'Enter Claim Code', class: "claim_code_submit", :class => "btn btn-primary"
