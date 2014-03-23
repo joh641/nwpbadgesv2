@@ -8,5 +8,5 @@
       %h3 Description:
       #description= @badge.description
       %h3
-      - if @badge.claimcode && @badge.claimcode != ""
+      - if @badge.claimcode && @badge.claimcode != "" && signed_in?
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
