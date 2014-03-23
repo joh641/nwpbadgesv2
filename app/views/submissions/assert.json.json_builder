@@ -1,6 +1,6 @@
 uid @submission.badge.name
 recipient do
-  identity @submission.email
+  identity @submission.user.email
   type "email"
   hashed false
 end
@@ -9,5 +9,5 @@ verify do
   type "hosted"
   url "http://nwpbadges.herokuapp.com/submissions/#{@submission.id}/assert.json"
 end
-issuedOn @submission.date.to_i
+issuedOn @submission.created_at.to_i
 evidence "http://nwpbadges.herokuapp.com/submissions/#{@submission.id}"

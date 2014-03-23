@@ -9,13 +9,68 @@
     = csrf_meta_tags
 
   %body
-    %h1.title= link_to 'NWP Badges Prototype', badges_path
+    #main-menu.navbar
+
+      .navbar-header
+        %button.navbar-toggle{:type => "button", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+
+        = link_to "/", :class => "home-link" do
+          = image_tag 'nwp.png'
+          %span.gallery-menu-text
+            Badges Prototype
+
+      .navbar-collapse.collapse
+        %ul{:class => "nav navbar-nav navbar-right main-navigation"} 
+
+          - if is_admin?
+            %li{:class => "tab"}>
+              = link_to submissions_path do
+                %i{:class => "fa fa-file-text"}
+                %p Submissions
+
+          - if signed_in?
+
+            - if !is_admin?
+              %li{:class => "tab"}>
+                = link_to my_submissions_path do
+                  %i{:class => "fa fa-file-text"}
+                  %p My Submissions
+
+            %li.dropdown-custom.tab.account
+              %a
+                %i.fa.fa-user
+                %p
+                  = current_user.email
+                  %b.caret
+
+              %ul.dropdown-menu
+                %li
+                  = link_to "Profile", edit_user_registration_path
+                %li
+                  = link_to "Sign out", destroy_user_session_path, :method => :delete
+
+          - else
+            %li{:class => "tab account"}>
+              = link_to new_user_registration_path do
+                %i{:class => "fa fa-user"}
+                %p Sign up
+
+            %li{:class => "tab account"}>
+              = link_to new_user_session_path do
+                %i{:class => "fa fa-book"}
+                %p Log In
+
     - flash.each do |name, msg|
       .flash
         - if not msg.nil?
           - if msg.is_a?(String)
-            %div{:class => "alert alert-#{name == :notice ? "success" : "warning"}"}
-              %a.close{"data-dismiss" => "alert"} x
+            %div{:class => "alert alert-#{name == :notice ? "success" : "warning"}", :id => "flash"}
+              %a.close{"data-dismiss" => "alert"} ×
               = content_tag :div, msg, :id => "flash_#{name}"
-     
-    = yield
+
+    .container
+      = yield

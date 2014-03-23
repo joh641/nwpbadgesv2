@@ -1,14 +1,9 @@
-#container
-  .header-container.row
-    %h1 Create New Badge
+.container
   .content.row
-    .left-column-container.column.col-md-3
-      %h2 Admin
-      %ul
-      %h2 Menu
-      %ul
-        %li= link_to('Back to main page', badges_path)
+    = render partial: 'left_column'
     .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 Create New Badge
       = form_tag badges_path, :multipart => true do
         = render :partial => "badge_form"
         = submit_tag 'Create Badge'

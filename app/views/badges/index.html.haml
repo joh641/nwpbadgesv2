@@ -1,16 +1,9 @@
-#container
-  .header-container.row
-    %h1 All Badges
+.container
   .content.row
-    .left-column-container.column.col-md-3
-      %h2 Admin
-      %ul
-        %li= link_to('Add new badge', new_badge_path)
-        %li= link_to('View all submissions', submissions_path)
-      %h2 Menu
-      %ul
-        
+    = render partial: 'left_column'
     .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 All Badges
       - @badges.each do |badge|
         .col-md-3
           .badge-container

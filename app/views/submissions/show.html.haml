@@ -1,27 +1,17 @@
-#container
-  .header-container.row
-    %h1 Details about #{@submission.name}'s submission
+.container
   .content.row
-    .left-column-container.column.col-md-3
-      %h2 Admin
-      %ul
-        %li= link_to('Approve submission', approve_submission_path, :method => :get, :confirm => 'Are you sure?')
-        %li= link_to('Reject submission', reject_submission_path, :method => :get, :confirm => 'Are you sure?')
-        %li= button_to('Delete submission', submission_path(@submission), :method => :delete, :confirm => 'Are you sure?')
-        %li= link_to('Push badge to Mozilla Backpack', push_submission_path, :method => :get, :confirm => 'Are you sure?')
-        %li= link_to('Back to submission list', submissions_path)
-      %h2 Menu
-      %ul
-        
+    = render partial: 'left_column'
     .right-column-container.column.container.col-md-8 
+      .header-container.row
+        %h1 #{@submission.user.name}'s submission
       %h4 Email:
-      #email= @submission.email
+      #email= @submission.user.email
       %h4 Badge:
       #badge= @submission.badge.name
       %h4 Date:
-      #date= @submission.date.strftime("%B %d, %Y")
+      #date= @submission.created_at.strftime("%B %d, %Y")
       %h4 Status:
-      #status= @submission.status
+      #status= @submission.get_status
       %h4 Description:
       #description= @submission.description
 

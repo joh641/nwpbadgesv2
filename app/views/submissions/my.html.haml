@@ -1,0 +1,23 @@
+.container
+  .content.row
+    = render partial: 'left_column'
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 My Submissions
+      %table#submissions
+        %thead
+          %tr
+            %th Badge
+            %th Date
+            %th Status
+            %th Info
+            %th Actions
+        %tbody
+          - @submissions.each do |submission|
+            %tr
+              %td= submission.badge.name
+              %td= submission.created_at.strftime("%B %d, %Y")
+              %td= submission.get_status
+              %td= link_to("Details", submission_path(submission))
+              - if submission.approved?
+                %td= button_to("Push", push_submission_path(submission), :method => :get)

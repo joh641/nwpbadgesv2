@@ -1,13 +1,7 @@
-#container
-  .header-container.row
-    %h1 Claim Badge
+.container
   .content.row
-    .left-column-container.column.col-md-3
-      %h2 Admin
-      %ul
-        %li= link_to('Back to submission list', submissions_path)
-      %h2 Menu
-      %ul
-        %li= link_to('Back to main page', badges_path)
+    = render partial: 'left_column'
     .right-column-container.column.col-md-8
+      .header-container.row
+        %h1 Claim Badge
       = button_to "Click here to claim your badge", "javascript:OpenBadges.issue(['http://nwpbadges.herokuapp.com/submissions/#{@submission.id}/assert.json'], function(errors, successes) {});"

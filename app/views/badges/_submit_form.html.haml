@@ -1,15 +1,7 @@
 = form_tag submissions_path do
-  
-  #name
-    = label :submission, :name, 'Name'
-    = text_field :submission, :name
-  #email
-    = label :submission, :email, 'Email'
-    = text_field :submission, :email
   #badge
     = hidden_field_tag :badge, @badge.name
   #description
     = label :submission, :description, 'Evidence'
     = text_area :submission, :description
-
   = submit_tag 'Submit'
