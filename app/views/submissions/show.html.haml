@@ -14,4 +14,8 @@
       #status= @submission.get_status
       %h4 Description:
       #description= @submission.description
-
+      - if is_admin?
+        = link_to('Approve', approve_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-primary') if not @submission.approved?
+        = link_to('Reject', reject_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-danger') if not @submission.rejected?
+      - if @submission.approved?
+        = link_to('Push', push_submission_path, :method => :get, :class => 'btn btn-default')

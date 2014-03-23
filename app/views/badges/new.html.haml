@@ -6,4 +6,4 @@
         %h1 Create New Badge
       = form_tag badges_path, :multipart => true do
         = render :partial => "badge_form"
-        = submit_tag 'Create Badge'
+        = submit_tag 'Create Badge', :class => "btn btn-primary"

@@ -1,6 +1,6 @@
 .container
   .content.row
-    = render partial: 'left_column'    
+    .left-column-container.column.col-md-3  
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 #{@badge.name}
@@ -10,3 +10,9 @@
       %h3
       - if @badge.claimcode && @badge.claimcode != "" && signed_in?
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
+      - if signed_in? && (!@badge.claimcode || @badge.claimcode == "")
+        = link_to('Make a submission', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
+      - if is_admin?
+        = link_to 'Edit', edit_badge_path, :class => "btn btn-default" 
+        = link_to "Delete", badge_path(@badge), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger'
+

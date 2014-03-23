@@ -8,11 +8,9 @@ Features:
   approve => link to push to backpack
 - sort by ascending / descending
 - submission editing
-- autopush to backpack on claimcode
 
 Layout/Look:
 - badge earners displayed underneath badges more prominently, similar to P2PU
-- bootstrap
 - drop down menu for actions
 
 Miscellaneous:

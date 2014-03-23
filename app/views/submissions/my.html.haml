@@ -19,5 +19,4 @@
               %td= submission.created_at.strftime("%B %d, %Y")
               %td= submission.get_status
               %td= link_to("Details", submission_path(submission))
-              - if submission.approved?
-                %td= button_to("Push", push_submission_path(submission), :method => :get)
+              %td= button_to("Push", push_submission_path(submission), :method => :get, :class => "btn btn-default") if submission.approved?

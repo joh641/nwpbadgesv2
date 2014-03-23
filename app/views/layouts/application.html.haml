@@ -27,6 +27,12 @@
         %ul{:class => "nav navbar-nav navbar-right main-navigation"} 
 
           - if is_admin?
+
+            %li{:class => "tab"}>
+              = link_to new_badge_path do
+                %i{:class => "fa fa-circle"}
+                %p Create Badge
+
             %li{:class => "tab"}>
               = link_to submissions_path do
                 %i{:class => "fa fa-file-text"}
