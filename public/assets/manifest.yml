@@ -1,8 +1,8 @@
 ---
 nwp-logo.png: nwp-logo-d8d57aab2e67e14cf8bc975f3e116a8a.png
 nwp-logo/index.png: nwp-logo-d8d57aab2e67e14cf8bc975f3e116a8a.png
-nwp.jpeg: nwp-d294f810c0523b21cb18749013d48155.jpeg
-nwp/index.jpeg: nwp-d294f810c0523b21cb18749013d48155.jpeg
+nwp.png: nwp-d294f810c0523b21cb18749013d48155.png
+nwp/index.png: nwp-d294f810c0523b21cb18749013d48155.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-3f5d2f7bc8664907011650341fc630aa.js
