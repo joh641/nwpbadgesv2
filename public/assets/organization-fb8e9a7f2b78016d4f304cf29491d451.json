@@ -1,7 +1,0 @@
-{
-	"name": "National Writing Project Badges Prototype",
-	"url": "#{ENV['root']}",
-	"description": "Insert Description Here",
-	"image": "#{ENV['root']}/assets/nwp-logo.png",
-	"email": "jlam@nwp.org"
-}
