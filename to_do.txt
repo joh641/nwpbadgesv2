@@ -1,17 +1,9 @@
 Features:
 - accept other forms of media for evidence
-- color code for status (approved => green, pending => yellow, rejected => red)
-- in place editing of information
 - resubmission protocol, back and forth conversation
+- conversation about badge
 - send email on approve/reject
   reject => reasons why, link for more evidence
   approve => link to push to backpack
 - sort by ascending / descending
 - submission editing
-
-Layout/Look:
-- badge earners displayed underneath badges more prominently, similar to P2PU
-- drop down menu for actions
-
-Miscellaneous:
-- host on nwp.org
