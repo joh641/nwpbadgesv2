@@ -1,4 +1,10 @@
 ---
+badges/advocate-badge.png: badges/advocate-badge-c64aa3cb274eda1f6909d4537b94dbf1.png
+badges/advocate-badge/index.png: badges/advocate-badge-c64aa3cb274eda1f6909d4537b94dbf1.png
+badges/facilitator-badge.png: badges/facilitator-badge-6e35df845dadf0c502c343afee895dd6.png
+badges/facilitator-badge/index.png: badges/facilitator-badge-6e35df845dadf0c502c343afee895dd6.png
+badges/test-badge.png: badges/test-badge-b3d6e44905d80737a59e0e8a1e65ce47.png
+badges/test-badge/index.png: badges/test-badge-b3d6e44905d80737a59e0e8a1e65ce47.png
 nwp-logo.png: nwp-logo-d8d57aab2e67e14cf8bc975f3e116a8a.png
 nwp-logo/index.png: nwp-logo-d8d57aab2e67e14cf8bc975f3e116a8a.png
 nwp.png: nwp-d294f810c0523b21cb18749013d48155.png
@@ -7,8 +13,8 @@ rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-3f5d2f7bc8664907011650341fc630aa.js
 application/index.js: application-3f5d2f7bc8664907011650341fc630aa.js
-organization.json: organization-08d6b628ef84a3883c4c8f7832568476.json
-organization/index.json: organization-08d6b628ef84a3883c4c8f7832568476.json
+organization.json: organization-fb8e9a7f2b78016d4f304cf29491d451.json
+organization/index.json: organization-fb8e9a7f2b78016d4f304cf29491d451.json
 application.css: application-e3145b1e3ff55fd08a294747879e4424.css
 application/index.css: application-e3145b1e3ff55fd08a294747879e4424.css
 fontawesome-webfont.eot: fontawesome-webfont-e742c0f297e307a74bdf4ca3c19073a2.eot

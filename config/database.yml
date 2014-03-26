@@ -23,5 +23,5 @@ production:
   encoding: unicode
   database: nwpbadges_production
   pool: 5
-  username: root
-  password:
+  username: apache
+  password: secret

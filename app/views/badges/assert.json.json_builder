@@ -1,6 +1,6 @@
 name @badge.name
 description @badge.description
 image "#{@badge.image.url}"
-criteria "http://nwpbadges.herokuapp.com/badges/#{@badge.id}"
-issuer "http://nwpbadges.herokuapp.com/assets/organization.json"
+criteria "#{ENV['root']}/badges/#{@badge.id}"
+issuer "#{ENV['root']}/assets/organization.json"
 tags @badge.name.split

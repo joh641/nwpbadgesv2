@@ -4,10 +4,10 @@ recipient do
   type "email"
   hashed false
 end
-badge "http://nwpbadges.herokuapp.com/badges/#{@submission.badge.id}/assert.json"
+badge "#{ENV['root']}/badges/#{@submission.badge.id}/assert.json"
 verify do
   type "hosted"
-  url "http://nwpbadges.herokuapp.com/submissions/#{@submission.id}/assert.json"
+  url "#{ENV['root']}/submissions/#{@submission.id}/assert.json"
 end
 issuedOn @submission.created_at.to_i
-evidence "http://nwpbadges.herokuapp.com/submissions/#{@submission.id}"
+evidence "#{ENV['root']}/submissions/#{@submission.id}"
