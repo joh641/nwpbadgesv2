@@ -1,7 +1,7 @@
 {
 	"name": "National Writing Project",
-	"url": "#{ENV['root']}",
+	"url": "http://badge.nwp.org",
 	"description": "Insert Description Here",
-	"image": "#{ENV['root']}/assets/nwp-logo.png",
+	"image": "http://badge.nwp.org/assets/nwp-logo.png",
 	"email": "nwp@nwp.org"
 }
