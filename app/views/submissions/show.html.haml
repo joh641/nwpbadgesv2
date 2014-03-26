@@ -3,9 +3,9 @@
     = render partial: 'left_column'
     .right-column-container.column.container.col-md-8 
       .header-container.row
-        %h1 #{@submission.user.name}'s submission
+        %h1 #{@submission.name}'s submission
       %h4 Email:
-      #email= @submission.user.email
+      #email= @submission.email
       %h4 Badge:
       #badge= @submission.badge.name
       %h4 Date:

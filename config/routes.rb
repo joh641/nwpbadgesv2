@@ -13,12 +13,11 @@ Nwpbadges::Application.routes.draw do
   resources :submissions do
     member do
       get 'assert'
+      get 'claim'
       get 'push'
       put 'approve'
+      put 'claim_create'
       put 'reject'
-    end
-    collection do
-      get 'my'
     end
   end
 

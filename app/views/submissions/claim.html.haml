@@ -1,0 +1,25 @@
+.container
+  .content.row
+    .left-column-container.column.col-md-3
+      %h3 Badge Earners
+      %ul
+        - @badge.submissions.each do |submission|
+          - if submission.get_status == 'Approved'
+            %li= submission.name
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 #{@badge.name}
+      = image_tag @badge.image.url(:medium)
+      %h3 Description:
+      #description= @badge.description
+      = form_tag claim_create_submission_path(@submission), :method => :put do
+        #name.form-group
+          = label_tag :name, 'Name', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field_tag :name
+        #name.form-group
+          = label_tag :email, 'Email', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field_tag :email
+        #submit
+          = submit_tag 'Submit', :class => "btn btn-primary"

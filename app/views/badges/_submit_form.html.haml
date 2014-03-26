@@ -1,6 +1,14 @@
 = form_tag submissions_path do
   #badge
     = hidden_field_tag :badge, @badge.id
+  #name.form-group
+    = label :submission, :name, 'Name', :class => "control-label reserve-label"
+    .reserve-input
+      = text_field :submission, :name
+  #name.form-group
+    = label :submission, :email, 'Email', :class => "control-label reserve-label"
+    .reserve-input
+      = text_field :submission, :email
   #description.form-group
     = label :submission, :description, 'Evidence', :class => "control-label reserve-label"
     .reserve-input

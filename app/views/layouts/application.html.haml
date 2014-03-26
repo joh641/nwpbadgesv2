@@ -40,12 +40,6 @@
 
           - if signed_in?
 
-            - if !is_admin?
-              %li{:class => "tab"}>
-                = link_to my_submissions_path do
-                  %i{:class => "fa fa-file-text"}
-                  %p My Submissions
-
             %li.dropdown-custom.tab.account
               %a
                 %i.fa.fa-user

@@ -1,6 +1,6 @@
 uid @submission.badge.name
 recipient do
-  identity @submission.user.email
+  identity @submission.email
   type "email"
   hashed false
 end

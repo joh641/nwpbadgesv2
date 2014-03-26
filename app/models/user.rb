@@ -8,13 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name
 
-  has_many :submissions
-  has_many :badges, through: :submissions
-
   validates :name, :presence => true
 
-
-  USER = 0
   ADMIN = 1
 
   def admin?

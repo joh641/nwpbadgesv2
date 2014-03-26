@@ -1,7 +1,6 @@
 class BadgesController < ApplicationController
   respond_to :html, :json
   before_filter :is_admin, :only => [:new, :edit, :update, :create, :destroy]
-  before_filter :signed_in, :only => [:submit, :claim]
 
   def show
     @badge = Badge.find_by_id params[:id]
@@ -53,11 +52,10 @@ class BadgesController < ApplicationController
     if badge.claimcode == code
       submission = Submission.new
       submission.badge = badge
-      submission.user = current_user
       submission.status = Submission::APPROVED
       submission.description = "Claim Code"
       submission.save
-      redirect_to push_submission_path(submission)
+      redirect_to claim_submission_path(submission), :method => :get
     else
       flash[:warning] = "Invalid Claim Code: #{code}"
       redirect_to :back and return

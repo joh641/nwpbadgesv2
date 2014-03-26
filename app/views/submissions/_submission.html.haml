@@ -1,7 +1,7 @@
 - # A single row of the All Submissions table
 %tr
-  %td= submission.user.name
-  %td= submission.user.email 
+  %td= submission.name
+  %td= submission.email 
   %td= submission.badge.name
   %td= submission.created_at.strftime("%B %d, %Y")
   %td= submission.get_status

@@ -1,9 +1,8 @@
 class Submission < ActiveRecord::Base
   
-  attr_accessible :description
+  attr_accessible :name, :email, :description
   
   belongs_to :badge
-  belongs_to :user
 
   PENDING = 0
   APPROVED = 1
