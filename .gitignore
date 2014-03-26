@@ -16,3 +16,5 @@
 
 .DS_Store
 /config/environment_variables.rb
+
+/public/assets
