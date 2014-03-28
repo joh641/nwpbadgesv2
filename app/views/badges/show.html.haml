@@ -6,6 +6,13 @@
         - @badge.submissions.each do |submission|
           - if submission.get_status == 'Approved'
             %li= submission.name
+      - if is_admin? && @badge.claimcode?
+        %h3 Create Claim Code
+        = form_tag create_claimcode_badge_path(@badge), :method => :post, :id => 'claimcode_form' do
+          .search-input-container.input-group
+            %input{:class => 'form-control search-bar', :type => 'text', :placeholder => 'Choose a code', :name => 'claimcode'}
+            %span{:class =>"input-group-btn"}>
+              = submit_tag 'Add', :class => "btn btn-default search-submit"
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 #{@badge.name}
@@ -13,10 +20,10 @@
       %h3 Description:
       #description= @badge.description
       %h3
-      - if @badge.claimcode && @badge.claimcode != ""
+      - if @badge.claimcode
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
       %hr
-      - if (!@badge.claimcode || @badge.claimcode == "")
+      - if (!@badge.claimcode)
         = link_to('Make a submission', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
       - if is_admin?
         = link_to 'Edit', edit_badge_path, :class => "btn btn-default" 

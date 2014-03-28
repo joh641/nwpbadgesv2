@@ -7,7 +7,11 @@ Nwpbadges::Application.routes.draw do
       get 'assert'
       get 'submit'
       post 'claim'
+      post 'create_claimcode'
     end
+  end
+
+  resources :claimcodes do
   end
 
   resources :submissions do

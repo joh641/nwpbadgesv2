@@ -15,31 +15,27 @@ class SubmissionsController < ApplicationController
     @submission.badge = Badge.find_by_id params[:badge]
     @submission.status = Submission::PENDING
     @submission.save
-    flash[:notice] = "Your submission was successfully created."
-    redirect_to badges_path
+    redirect_to badges_path, notice: "Your submission was successfully created."
   end
 
   def destroy
     @submission = Submission.find_by_id params[:id]
     @submission.destroy
-    flash[:notice] = "#{@submission.name}'s submission deleted."
-    redirect_to :back
+    redirect_to :back, notice: "#{@submission.name}'s submission deleted."
   end
 
   def approve
     @submission = Submission.find_by_id params[:id]
     @submission.status = Submission::APPROVED
     @submission.save
-    flash[:notice] = "#{@submission.name}'s submission was approved."
-    redirect_to :back 
+    redirect_to :back, notice: "#{@submission.name}'s submission was approved."
   end
   
   def reject
     @submission = Submission.find_by_id params[:id]
     @submission.status = Submission::REJECTED
     @submission.save
-    flash[:notice] = "#{@submission.name}'s submission was rejected."
-    redirect_to :back
+    redirect_to :back, notice: "#{@submission.name}'s submission was rejected."
   end
 
   def assert

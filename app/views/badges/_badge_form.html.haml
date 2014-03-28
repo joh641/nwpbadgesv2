@@ -13,4 +13,4 @@
 #claimcode.form-group
   = label :badge, :claimcode, 'Claim Code', :class => "control-label reserve-label"
   .reserve-input
-    = text_field :badge, :claimcode
+    = select :badge, :claimcode, {"Yes" => true, "No" => false}

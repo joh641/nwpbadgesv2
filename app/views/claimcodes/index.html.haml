@@ -1,0 +1,25 @@
+.container
+  .content.row
+    .left-column-container.column.col-md-3
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 All Claim Codes
+      %table#claimcodes.table
+        %thead
+          %tr
+            %th Code
+            %th Badge
+            %th Claimed
+            %th Action
+        .body
+          - @claimcodes.each do |claimcode|
+            %tr
+              %td= claimcode.code
+              %td= claimcode.badge.name
+              - if claimcode.claimed?
+                %td Yes
+              - else
+                %td No
+              %td
+                = link_to "Edit", edit_claimcode_path(claimcode), :method => :get, :class => "btn btn-xs btn-default"
+                = link_to "Delete", claimcode_path(claimcode), :method => :delete, :class => "btn btn-xs btn-danger", :confirm => 'Are you sure?'

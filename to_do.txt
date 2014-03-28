@@ -7,3 +7,4 @@ Features:
   approve => link to push to backpack
 - sort by ascending / descending
 - submission editing
+- fix banner color

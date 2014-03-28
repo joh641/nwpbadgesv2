@@ -1,11 +1,6 @@
 .container
   .content.row
     .left-column-container.column.col-md-3
-      %h3 Badge Earners
-      %ul
-        - @badge.submissions.each do |submission|
-          - if submission.get_status == 'Approved'
-            %li= submission.name
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 #{@badge.name}

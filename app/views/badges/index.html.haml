@@ -10,5 +10,5 @@
             .badge-info
               .image= link_to(image_tag(badge.image.url(:medium)), badge_path(badge))
               .title= badge.name
-              - if badge.claimcode && badge.claimcode != ""
+              - if badge.claimcode
                 .claimcode= render :partial => 'claim_code', :locals => {:badge => badge}

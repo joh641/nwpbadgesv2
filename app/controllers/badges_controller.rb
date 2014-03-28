@@ -25,21 +25,18 @@ class BadgesController < ApplicationController
   def update
     @badge = Badge.find_by_id params[:id]
     @badge.update_attributes params[:badge]
-    flash[:notice] = "#{@badge.name} was successfully updated."
-    redirect_to badge_path(@badge)
+    redirect_to badge_path(@badge), notice: "#{@badge.name} was successfully updated."
   end
 
   def create
     @badge = Badge.create params[:badge]
-    flash[:notice] = "#{@badge.name} was successfully created."
-    redirect_to badges_path
+    redirect_to badges_path, notice: "#{@badge.name} was successfully created."
   end
 
   def destroy
     badge = Badge.find_by_id params[:id]
     badge.destroy
-    flash[:notice] = "#{badge.name} was deleted."
-    redirect_to badges_path
+    redirect_to badges_path, notice: "#{badge.name} was deleted."
   end
 
   def assert
@@ -49,17 +46,34 @@ class BadgesController < ApplicationController
   def claim
     badge = Badge.find_by_id params[:id]
     code = params[:claim][:claimcode]
-    if badge.claimcode == code
-      submission = Submission.new
-      submission.badge = badge
-      submission.status = Submission::APPROVED
-      submission.description = "Claim Code"
-      submission.save
-      redirect_to claim_submission_path(submission), :method => :get
+    claimcode = badge.find_code code
+    if claimcode
+      if claimcode.claimed?
+        flash[:warning] = "Already Claimed: #{code}"
+        redirect_to :back and return
+      else
+        submission = Submission.new
+        submission.badge = badge
+        submission.status = Submission::APPROVED
+        submission.description = "Claim Code"
+        submission.save
+        claimcode.claimed = true
+        claimcode.save
+        redirect_to claim_submission_path(submission), :method => :get
+      end
     else
       flash[:warning] = "Invalid Claim Code: #{code}"
       redirect_to :back and return
     end
+  end
+
+  def create_claimcode
+    badge = Badge.find_by_id params[:id]
+    claimcode = Claimcode.new
+    claimcode.code = params[:claimcode]
+    claimcode.badge = badge
+    claimcode.save
+    redirect_to :back, notice: "Claimcode #{claimcode.code} successfully created"
   end
 
 end

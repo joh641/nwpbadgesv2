@@ -38,6 +38,11 @@
                 %i{:class => "fa fa-file-text"}
                 %p Submissions
 
+            %li{:class => "tab"}>
+              = link_to claimcodes_path do
+                %i{:class => "fa fa-barcode"}
+                %p Claim Codes
+
           - if signed_in?
 
             %li.dropdown-custom.tab.account
