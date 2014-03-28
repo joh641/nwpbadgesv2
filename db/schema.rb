@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(:version => 20140328193710) do
   create_table "badges", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "claimcode",          :limit => 255, :default => false
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "claimcode",          :default => false
   end
 
   create_table "claimcodes", :force => true do |t|

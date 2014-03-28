@@ -1,9 +1,11 @@
 class ChangeClaimcodeInBadges < ActiveRecord::Migration
   def up
-    change_column :badges, :claimcode, :boolean, default: false
+    remove_column :badges, :claimcode
+    add_column :badges, :claimcode, :boolean, default: false
   end
 
   def down
-    change_column :badges, :claimcode, :string
+    remove_column :badges, :claimcode
+    add_column :badges, :claimcode, :string
   end
 end
