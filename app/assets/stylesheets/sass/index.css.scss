@@ -5,7 +5,6 @@ html, body {
 }
 
 .badge-wrapper {
-/*  @include make-xs-column(6);*/
   @include make-xs-column(12);
   @include make-sm-column(4);
   @include make-md-column(3);
@@ -17,7 +16,6 @@ html, body {
     .badge-container {
       @include border-radius(2px, 2px, 2px, 2px);
       text-align: center;
-      border: 1px #ddd solid;
       background-color: white;
       .badge-info {
         .img-wrapper {
@@ -42,48 +40,12 @@ html, body {
         margin: 5px 2px 10px;
         text-decoration: none;
       }
-      .subtitle {
-        @include height(25px, 12px);
-        color: white;
-      }
       &:hover {
         border-color: gray;
       }
     }
   }
 }
-
-$grid-units: 3;
-.category {
-  i {
-    padding-top: 18px;
-    font-size: 35px;
-  }
-  i, .category-name {
-    display: block;
-    text-align: center;
-  }
-  .category-name {
-    @include line-height(25px, 13px);
-    a {
-      color: white;
-      font-size: 12px;
-      padding: 2px 8px 4px;
-
-      border-radius: 7px;
-      width: 80px;
-      text-align: center;
-    }
-    .actions {
-      margin-top: 3px;
-      .button_to {
-        margin-right: 5px;
-        display: inline-block;
-      }
-    }
-  }
-}
-
 
 #badge-cards {
   clear: both;
