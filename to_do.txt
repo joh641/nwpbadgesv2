@@ -1,10 +1,14 @@
-Features:
-- accept other forms of media for evidence
-- resubmission protocol, back and forth conversation
-- conversation about badge
+setup mailers:
 - send email on approve/reject
   reject => reasons why, link for more evidence
   approve => link to push to backpack
-- sort by ascending / descending
-- submission editing
-- fix banner color
+
+conversation:
+- resubmission protocol, back and forth conversation
+- conversation about badge
+
+ui:
+- sort claimcodes by badge, show list of claimcodes for a badge
+- fix logo/banner color
+
+- accept other forms of media for evidence
