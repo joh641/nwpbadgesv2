@@ -1,4 +1,5 @@
 class ClaimcodesController < ApplicationController
+  before_filter :is_admin
 
   def index
     @claimcodes = Claimcode.all
