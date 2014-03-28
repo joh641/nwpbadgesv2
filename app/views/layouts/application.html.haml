@@ -43,6 +43,11 @@
                 %i{:class => "fa fa-barcode"}
                 %p Claim Codes
 
+            %li{:class => "tab"}>
+              = link_to users_path do
+                %i{:class => "fa fa-user"}
+                %p Users
+
           - if signed_in?
 
             %li.dropdown-custom.tab.account

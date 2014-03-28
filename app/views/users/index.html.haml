@@ -1,0 +1,24 @@
+.container
+  .content.row
+    .left-column-container.column.col-md-3
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 All Users
+      %table#users.table
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Admin?
+            %th Action
+        .body
+          - @users.each do |user|
+            %tr
+              %td= user.name
+              %td= user.email
+              - if user.category == 0
+                %td No
+                %td= link_to "Make admin", make_admin_user_path(user), :method => :put, :class => "btn btn-xs btn-danger", :confirm => 'Are you sure?'
+              - else
+                %td Yes
+                %td= link_to "Remove admin", remove_admin_user_path(user), :method => :put, :class => "btn btn-xs btn-danger", :confirm => 'Are you sure?'

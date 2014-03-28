@@ -1,6 +1,12 @@
 Nwpbadges::Application.routes.draw do
 
   devise_for :users
+  resources :users do
+    member do
+      put 'make_admin'
+      put 'remove_admin'
+    end
+  end
 
   resources :badges do
     member do
