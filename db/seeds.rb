@@ -37,7 +37,7 @@ badges = [
   },
   { 
     name: 'Educator Innovator',
-    description: 'Educator Innovatore'
+    description: 'Educator Innovator'
   }
 ]
 
