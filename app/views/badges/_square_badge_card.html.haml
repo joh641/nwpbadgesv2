@@ -1,0 +1,7 @@
+.badge-wrapper
+  = link_to badge_path(badge) do
+    .badge-container{:data => {:badge_id => badge.id}}
+      .badge-info
+        .img-wrapper
+          = image_tag(badge.image.url(:medium))
+        .title= truncate(badge.name, :length => 34)

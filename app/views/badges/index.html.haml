@@ -4,11 +4,5 @@
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 All Badges
-      - @badges.each do |badge|
-        .col-md-3
-          .badge-container
-            .badge-info
-              .image= link_to(image_tag(badge.image.url(:medium)), badge_path(badge))
-              .title= badge.name
-              - if badge.claimcode
-                .claimcode= render :partial => 'claim_code', :locals => {:badge => badge}
+        - @badges.each do |badge|
+          = render partial: 'square_badge_card', :locals => {:badge => badge}
