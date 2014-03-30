@@ -26,4 +26,11 @@ class Notifier < ActionMailer::Base
     mail subject: "A new submission was created for #{@badge}"
   end
 
+  def educator_innovator(submission)
+    @name = submission.name
+    @email = submission.email
+    @url = "#{ENV['root']}/submissions/#{submission.id}/push"
+    mail to: @email, subject: "You earned the Educator Innovator badge!"
+  end
+
 end

@@ -28,4 +28,11 @@ class Badge < ActiveRecord::Base
     nil
   end
 
+  def find_approved_submission(email)
+    submissions.each do |submission|
+      return submission if submission.email == email && submission.approved?
+    end
+    nil
+  end
+
 end

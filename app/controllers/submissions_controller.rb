@@ -18,6 +18,7 @@ class SubmissionsController < ApplicationController
     @submission.status = Submission::PENDING
     if @submission.save
       Notifier.new_submission(@submission).deliver
+      educator_innovator(@submission) if Submission.has_all?(@submission)
       redirect_to badges_path, notice: "Your submission was successfully created."
     else
       flash[:warning] = "URL must be of form http://URL"
@@ -77,6 +78,19 @@ class SubmissionsController < ApplicationController
   
   def push
     @submission = Submission.find_by_id params[:id]
+  end
+
+  private
+
+  def educator_innovator(submission)
+    @submission = Submission.new
+    @submission.name = submission.name
+    @submission.email = submission.email
+    @submission.badge = Badge.find_by_name "Educator Innovator"
+    @submission.status = Submission::APPROVED
+    @submission.description = "Earned all badges"
+    @submission.save
+    Notifier.educator_innovator(@submission)
   end
 
 end

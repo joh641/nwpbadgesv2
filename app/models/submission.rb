@@ -10,6 +10,14 @@ class Submission < ActiveRecord::Base
   APPROVED = 1
   REJECTED = 2
 
+  def self.has_all?(submission)
+    email = submission.email
+    Badge.all.each do |badge|
+      return false if not badge.find_approved_submission submission
+    end
+    true
+  end
+
   def approved?
     status == APPROVED
   end
