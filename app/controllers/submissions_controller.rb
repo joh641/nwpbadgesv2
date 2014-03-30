@@ -7,15 +7,21 @@ class SubmissionsController < ApplicationController
   end
 
   def index
-    @submissions = Submission.all
+    @submissions = Submission.all.reverse
   end
 
   def create
-    @submission = Submission.create params[:submission]
+    url = params[:submission][:url]
+    params[:submission].delete :url if url == ""
+    @submission = Submission.new params[:submission]
     @submission.badge = Badge.find_by_id params[:badge]
     @submission.status = Submission::PENDING
-    @submission.save
-    redirect_to badges_path, notice: "Your submission was successfully created."
+    if @submission.save
+      redirect_to badges_path, notice: "Your submission was successfully created."
+    else
+      flash[:warning] = "URL must be of form http://URL"
+      redirect_to :back
+    end
   end
 
   def destroy

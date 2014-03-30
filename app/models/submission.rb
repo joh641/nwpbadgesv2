@@ -4,6 +4,8 @@ class Submission < ActiveRecord::Base
   
   belongs_to :badge
 
+  validates :url, :format => URI::regexp(%w(http https))
+
   PENDING = 0
   APPROVED = 1
   REJECTED = 2

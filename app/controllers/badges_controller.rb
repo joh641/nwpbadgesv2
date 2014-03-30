@@ -30,8 +30,13 @@ class BadgesController < ApplicationController
   end
 
   def create
-    @badge = Badge.create params[:badge]
-    redirect_to badges_path, notice: "#{@badge.name} was successfully created."
+    @badge = Badge.new params[:badge]
+    if @badge.save
+      redirect_to badges_path, notice: "#{@badge.name} was successfully created."
+    else
+      flash[:warning] = "Badge requires a name and description."
+      render action: "new"
+    end
   end
 
   def destroy

@@ -9,6 +9,10 @@
     = label :submission, :email, 'Email', :class => "control-label reserve-label"
     .reserve-input
       = text_field :submission, :email
+  #url.form-group
+    = label :submission, :url, 'Evidence URL (must be of form http://URL)', :class => "control-label reserve-label"
+    .reserve-input
+      = text_field :submission, :url
   #description.form-group
     = label :submission, :description, 'Evidence', :class => "control-label reserve-label"
     .reserve-input

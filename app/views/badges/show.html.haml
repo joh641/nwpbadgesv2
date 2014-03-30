@@ -23,7 +23,7 @@
       - if @badge.claimcode
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
       %hr
-      - if (!@badge.claimcode)
+      - if !@badge.claimcode && @badge.category != "Educator Innovator"
         = link_to('Make a submission', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
       - if is_admin?
         = link_to 'Edit', edit_badge_path, :class => "btn btn-default" 

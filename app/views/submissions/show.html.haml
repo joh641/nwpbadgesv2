@@ -12,11 +12,13 @@
       #date= @submission.created_at.strftime("%B %d, %Y")
       %h4 Status:
       #status= @submission.get_status
-      %h4 Description:
+      %h4 Evidence URL:
+      #url= link_to @submission.url, @submission.url
+      %h4 Evidence:
       #description= @submission.description
       %hr
       - if is_admin?
         = link_to('Approve', approve_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-primary') if not @submission.approved?
         = link_to('Reject', reject_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-danger') if not @submission.rejected?
       - if @submission.approved?
-        = link_to('Push', push_submission_path, :method => :get, :class => 'btn btn-default')
+        = link_to('Push', push_submission_path, :method => :get, :class => 'btn btn-primary')

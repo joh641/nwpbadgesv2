@@ -5,7 +5,7 @@
   %td= submission.badge.name
   %td= submission.created_at.strftime("%B %d, %Y")
   %td= submission.get_status
-  %td= link_to("Details", submission_path(submission))
   %td
-    = link_to "Push", push_submission_path(submission), :method => :get, :class => "btn btn-xs btn-default" if submission.approved?
+    = link_to "Details", submission_path(submission), :method => :get, :class => "btn btn-xs btn-default"
+    = link_to "Push", push_submission_path(submission), :method => :get, :class => "btn btn-xs btn-primary" if submission.approved?
     = link_to "Delete", submission_path(submission), :method => :delete, :class => "btn btn-xs btn-danger", :confirm => 'Are you sure?'
