@@ -24,6 +24,6 @@
         = link_to('Approve', approve_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-primary') if not @submission.approved?
         - if not @submission.rejected?
           %a{"data-toggle" => "modal", "data-target" => "#reasons", "id" => "reasons-for-rejecting", "class" => 'btn btn-danger'} Reject
-          = render "reject_modal"
+          = render "reject_modal", :locals => {:submission => @submission}
       - if @submission.approved?
         = link_to('Push', push_submission_path, :method => :get, :class => 'btn btn-primary')
