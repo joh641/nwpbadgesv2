@@ -70,6 +70,7 @@ class SubmissionsController < ApplicationController
       submission.name = params[:name]
       submission.email = params[:email]
       submission.save
+      Notifier.approve_submission(submission)
       redirect_to push_submission_path(submission)
     end
   end
