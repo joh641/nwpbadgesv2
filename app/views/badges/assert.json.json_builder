@@ -2,5 +2,5 @@ name @badge.name
 description @badge.description
 image "#{@badge.image.url}"
 criteria "#{ENV['root']}/badges/#{@badge.id}"
-issuer "#{ENV['root']}/assets/organization.json"
+issuer "#{ENV['root']}/badges/organization.json"
 tags @badge.name.split

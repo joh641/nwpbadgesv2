@@ -15,6 +15,9 @@ Nwpbadges::Application.routes.draw do
       post 'claim'
       post 'create_claimcode'
     end
+    collection do
+      get 'organization'
+    end
   end
 
   resources :claimcodes do

@@ -1,0 +1,5 @@
+name "National Writing Project"
+url "#{ENV['root']}"
+description "Insert Description Here"
+image "#{ENV['root']}/assets/nwp-logo.png"
+email "educatorinnovator@nwp.org"

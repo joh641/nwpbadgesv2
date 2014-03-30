@@ -49,6 +49,9 @@ class BadgesController < ApplicationController
     @badge = Badge.find_by_id params[:id]
   end
 
+  def organization
+  end
+
   def claim
     badge = Badge.find_by_id params[:id]
     code = params[:claim][:claimcode]
