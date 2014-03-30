@@ -2,7 +2,7 @@ class ClaimcodesController < ApplicationController
   before_filter :is_admin
 
   def index
-    @claimcodes = Claimcode.all
+    @claimcodes = Claimcode.sort_by_badge
   end
 
   def edit

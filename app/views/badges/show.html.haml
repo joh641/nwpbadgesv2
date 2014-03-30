@@ -13,6 +13,10 @@
             %input{:class => 'form-control search-bar', :type => 'text', :placeholder => 'Choose a code', :name => 'claimcode'}
             %span{:class =>"input-group-btn"}>
               = submit_tag 'Add', :class => "btn btn-default search-submit"
+        %h3 Claim Codes
+        %ul
+          - @badge.claimcodes.each do |code|
+            %li= code.code
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 #{@badge.name}

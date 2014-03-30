@@ -17,6 +17,7 @@ class SubmissionsController < ApplicationController
     @submission.badge = Badge.find_by_id params[:badge]
     @submission.status = Submission::PENDING
     if @submission.save
+      Notifier.new_submission(@submission).deliver
       redirect_to badges_path, notice: "Your submission was successfully created."
     else
       flash[:warning] = "URL must be of form http://URL"
@@ -34,13 +35,16 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find_by_id params[:id]
     @submission.status = Submission::APPROVED
     @submission.save
+    Notifier.approve_submission(@submission).deliver
     redirect_to :back, notice: "#{@submission.name}'s submission was approved."
   end
   
   def reject
     @submission = Submission.find_by_id params[:id]
+    @reasons = params[:reasons]
     @submission.status = Submission::REJECTED
     @submission.save
+    Notifier.reject_submission(@submission, @reasons).deliver
     redirect_to :back, notice: "#{@submission.name}'s submission was rejected."
   end
 
