@@ -6,6 +6,10 @@
   = label :badge, :image, 'Image', :class => "control-label reserve-label"
   .reserve-input
     = file_field :badge, :image
+#category.form-group
+  = label :badge, :category, 'Category', :class => "control-label reserve-label"
+  .reserve-input
+    = select :badge, :category, @categories
 #description.form-group
   = label :badge, :description, 'Description', :class => "control-label reserve-label"
   .reserve-input

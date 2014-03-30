@@ -1,6 +1,8 @@
 class Badge < ActiveRecord::Base
   
-  attr_accessible :name, :image, :description, :claimcode
+  attr_accessible :name, :image, :description, :claimcode, :category
+
+  scope :category_search, lambda { |category| where("category = ?", category) }
 
   has_many :claimcodes, dependent: :destroy
   has_many :submissions, dependent: :destroy
@@ -14,6 +16,10 @@ class Badge < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :description, :presence => true
+
+  def self.categories
+    ['Level 1', 'Level 2', 'Educator Innovator']
+  end
 
   def find_code(code)
     claimcodes.each do |claimcode|

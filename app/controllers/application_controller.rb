@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     return true    
   end
 
+  def categories
+    @categories = Badge.categories
+  end
+
 end

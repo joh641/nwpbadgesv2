@@ -1,6 +1,7 @@
 class BadgesController < ApplicationController
   respond_to :html, :json
   before_filter :is_admin, :only => [:new, :edit, :update, :create, :destroy]
+  before_filter :categories
 
   def show
     @badge = Badge.find_by_id params[:id]

@@ -4,5 +4,8 @@
     .right-column-container.column.container.col-md-8
       .header-container.row
         %h1 All Badges
-        - @badges.each do |badge|
-          = render partial: 'square_badge_card', :locals => {:badge => badge}
+        - @categories.each do |category|
+          %fieldset
+            %legend #{category}
+            - Badge.category_search(category).each do |badge|
+              = render partial: 'square_badge_card', :locals => {:badge => badge}

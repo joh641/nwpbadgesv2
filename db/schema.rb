@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140328193710) do
+ActiveRecord::Schema.define(:version => 20140330201757) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20140328193710) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "claimcode",          :default => false
+    t.string   "category"
   end
 
   create_table "claimcodes", :force => true do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20140328193710) do
     t.datetime "updated_at",  :null => false
     t.string   "name"
     t.string   "email"
+    t.string   "url"
   end
 
   create_table "users", :force => true do |t|
