@@ -16,9 +16,14 @@
       #url= link_to @submission.url, @submission.url
       %h4 Evidence:
       #description= @submission.description
+      - if @submission.rejected?
+        %h4 Reasons for Rejecting
+        #reasons= @submission.reasons
       %hr
       - if is_admin?
         = link_to('Approve', approve_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-primary') if not @submission.approved?
-        = link_to('Reject', reject_submission_path, :method => :put, :confirm => 'Are you sure?', :class => 'btn btn-danger') if not @submission.rejected?
+        - if not @submission.rejected?
+          %a{"data-toggle" => "modal", "data-target" => "#reasons", "id" => "reasons-for-rejecting", "class" => 'btn btn-danger'} Reject
+          = render "reject_modal"
       - if @submission.approved?
         = link_to('Push', push_submission_path, :method => :get, :class => 'btn btn-primary')

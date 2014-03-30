@@ -10,10 +10,10 @@ class Notifier < ActionMailer::Base
     mail to: @email, subject: "Your submission for #{@badge} has been approved"
   end
 
-  def reject_submission(submission, reasons)
+  def reject_submission(submission)
     @name = submission.name
     @mail = submission.email
-    @reasons = reasons
+    @reasons = submission.reasons
     @badge = submission.badge.name
     mail to: @email, subject: "Your submission for #{@badge} has been rejected"
   end

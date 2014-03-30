@@ -41,10 +41,10 @@ class SubmissionsController < ApplicationController
   
   def reject
     @submission = Submission.find_by_id params[:id]
-    @reasons = params[:reasons]
     @submission.status = Submission::REJECTED
+    @submission.reasons = params[:reasons]
     @submission.save
-    Notifier.reject_submission(@submission, @reasons).deliver
+    Notifier.reject_submission(@submission).deliver
     redirect_to :back, notice: "#{@submission.name}'s submission was rejected."
   end
 

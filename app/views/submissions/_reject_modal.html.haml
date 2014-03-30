@@ -1,0 +1,12 @@
+.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Reasons for Rejecting", role: "dialog", tabindex: "-1", id: "reasons"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Reasons for Rejecting
+      .modal-body
+        = form_tag reject_submission_path, :method => :put do
+          = text_area_tag :reasons
+          = submit_tag 'Reject', :class => 'btn btn-danger', :confirm => 'Are you sure?'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
