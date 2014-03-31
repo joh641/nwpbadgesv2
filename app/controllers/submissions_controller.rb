@@ -71,7 +71,7 @@ class SubmissionsController < ApplicationController
       submission.name = params[:name]
       submission.email = params[:email]
       submission.save
-      Notifier.approve_submission(submission)
+      Notifier.approve_submission(submission).deliver
       redirect_to push_submission_path(submission)
     end
   end
@@ -90,7 +90,7 @@ class SubmissionsController < ApplicationController
     @submission.status = Submission::APPROVED
     @submission.description = "Earned all badges"
     @submission.save
-    Notifier.educator_innovator(@submission)
+    Notifier.educator_innovator(@submission).deliver
   end
 
 end
