@@ -14,7 +14,7 @@ class Submission < ActiveRecord::Base
     email = submission.email
     Badge.all.each do |badge|
       next if badge.name == "Educator Innovator"
-      return false if not badge.find_approved_submission submission
+      return false if not badge.find_approved_submission email
     end
     true
   end
