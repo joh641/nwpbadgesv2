@@ -12,7 +12,6 @@ class BadgesController < ApplicationController
   end
 
   def index
-    @badges = Badge.order 'name ASC'
   end
 
   def new

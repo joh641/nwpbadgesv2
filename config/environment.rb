@@ -8,11 +8,11 @@ load(environment_variables) if File.exists?(environment_variables)
 Nwpbadges::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
+  :address        => ENV['SMTP'],
   :port           => '587',
   :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
+  :user_name      => ENV['SMTP_USERNAME'],
+  :password       => ENV['SMTP_PASSWORD'],
   :domain         => 'nwp.org',
   :enable_starttls_auto => true
 }
