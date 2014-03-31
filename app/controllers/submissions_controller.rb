@@ -18,7 +18,6 @@ class SubmissionsController < ApplicationController
     @submission.status = Submission::PENDING
     if @submission.save
       Notifier.new_submission(@submission).deliver
-      educator_innovator(@submission) if Submission.has_all?(@submission)
       redirect_to badges_path, notice: "Your submission was successfully created."
     else
       flash[:warning] = "URL must be of form http://URL"
@@ -37,6 +36,7 @@ class SubmissionsController < ApplicationController
     @submission.status = Submission::APPROVED
     @submission.save
     Notifier.approve_submission(@submission).deliver
+    educator_innovator(@submission) if Submission.has_all?(@submission)
     redirect_to :back, notice: "#{@submission.name}'s submission was approved."
   end
   
