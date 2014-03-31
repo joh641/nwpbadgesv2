@@ -13,6 +13,7 @@ class Submission < ActiveRecord::Base
   def self.has_all?(submission)
     email = submission.email
     Badge.all.each do |badge|
+      next if badge.name == "Educator Innovator"
       return false if not badge.find_approved_submission submission
     end
     true
