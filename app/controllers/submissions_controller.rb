@@ -72,6 +72,7 @@ class SubmissionsController < ApplicationController
       submission.email = params[:email]
       submission.save
       Notifier.approve_submission(submission).deliver
+      educator_innovator(submission) if Submission.has_all?(submission)
       redirect_to push_submission_path(submission)
     end
   end
