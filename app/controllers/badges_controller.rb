@@ -1,6 +1,6 @@
 class BadgesController < ApplicationController
   respond_to :html, :json
-  before_filter :is_admin, :only => [:new, :edit, :update, :create, :destroy]
+  before_filter :is_admin, :only => [:new, :edit, :update, :create, :destroy, :create_claimcode]
   before_filter :categories
 
   def show
