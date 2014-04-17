@@ -7,4 +7,6 @@
       = image_tag @badge.image.url(:medium)
       %h3 Description:
       %p#description= @badge.description
+      %h3 Criteria:
+      %p#criteria= @badge.criteria
       = render :partial => 'submit_form'

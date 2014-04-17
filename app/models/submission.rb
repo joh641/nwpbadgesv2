@@ -1,6 +1,6 @@
 class Submission < ActiveRecord::Base
   
-  attr_accessible :name, :email, :description, :url
+  attr_accessible :name, :email, :description, :url, :activity, :partner_code
   
   belongs_to :badge
 

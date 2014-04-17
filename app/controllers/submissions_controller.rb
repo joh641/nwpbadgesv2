@@ -70,6 +70,7 @@ class SubmissionsController < ApplicationController
     else
       submission.name = params[:name]
       submission.email = params[:email]
+      submission.partner_code = params[:partner_code]
       submission.save
       Notifier.approve_submission(submission).deliver
       educator_innovator(submission) if Submission.has_all?(submission)

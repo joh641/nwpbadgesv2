@@ -1,0 +1,21 @@
+.container
+  .content.row
+    .left-column-container.column.col-md-3
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 Edit Partner
+      = form_tag partner_path(@partner), :method => :put do
+        #name.form-group
+          = label :partner, :name, 'Name', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :partner, :name
+        #code.form-group
+          = label :partner, :code, 'Code', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :partner, :code
+        #email.form-group
+          = label :partner, :email, 'Email', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :partner, :email
+        #submit
+          = submit_tag 'Save Changes', :class => "btn btn-primary"

@@ -1,0 +1,13 @@
+.container
+  .content.row
+    .left-column-container.column.col-md-3
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 Edit Category
+      = form_tag category_path(@category), :method => :put do
+        #name.form-group
+          = label :category, :name, 'Name', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :category, :name
+        #submit
+          = submit_tag 'Save Changes', :class => "btn btn-primary"

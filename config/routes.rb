@@ -23,6 +23,12 @@ Nwpbadges::Application.routes.draw do
   resources :claimcodes do
   end
 
+  resources :categories do
+  end
+
+  resources :partners do
+  end
+
   resources :submissions do
     member do
       get 'assert'

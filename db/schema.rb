@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140330224809) do
+ActiveRecord::Schema.define(:version => 20140416231746) do
 
   create_table "badges", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20140330224809) do
     t.datetime "image_updated_at"
     t.boolean  "claimcode",          :default => false
     t.string   "category"
+    t.text     "criteria"
+    t.integer  "category_id"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "claimcodes", :force => true do |t|
@@ -34,16 +42,26 @@ ActiveRecord::Schema.define(:version => 20140330224809) do
     t.datetime "updated_at",                    :null => false
   end
 
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "submissions", :force => true do |t|
     t.integer  "status"
     t.text     "description"
     t.integer  "badge_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.string   "name"
     t.string   "email"
-    t.string   "url",         :default => "http://badge.nwp.org"
+    t.string   "url",          :default => "http://badge.nwp.org"
     t.text     "reasons"
+    t.string   "activity"
+    t.string   "partner_code"
   end
 
   create_table "users", :force => true do |t|

@@ -1,0 +1,38 @@
+.container
+  .content.row
+    .left-column-container.column.col-md-3
+      %h3 Create Partner
+      = form_tag partners_path do
+        #partner-name.form-group
+          = label :partner, :name, 'Name', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :partner, :name
+        #partner-code.form-group
+          = label :partner, :code, 'Code', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :partner, :code
+        #partner-email.form-group
+          = label :partner, :email, 'Email', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field :partner, :email
+        #submit
+          = submit_tag 'Submit', :class => "btn btn-primary"
+    .right-column-container.column.container.col-md-8
+      .header-container.row
+        %h1 All Partners
+      %table#partners.table
+        %thead
+          %tr
+            %th Partner
+            %th Code
+            %th Email
+            %th Actions
+        .body
+          - @partners.each do |partner|
+            %tr
+              %td= partner.name
+              %td= partner.code
+              %td= partner.email
+              %td
+                = link_to "Edit", edit_partner_path(partner), :method => :get, :class => "btn btn-xs btn-default"
+                = link_to "Delete", partner_path(partner), :method => :delete, :class => "btn btn-xs btn-danger", :confirm => 'Are you sure?'

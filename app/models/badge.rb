@@ -1,11 +1,12 @@
 class Badge < ActiveRecord::Base
   
-  attr_accessible :name, :image, :description, :claimcode, :category
+  attr_accessible :name, :image, :description, :claimcode, :criteria, :category
 
-  scope :category_search, lambda { |category| where("category = ?", category) }
+  scope :category_search, lambda { |category| joins(:category).where("categories.name = ?", category) }
 
   has_many :claimcodes, dependent: :destroy
   has_many :submissions, dependent: :destroy
+  belongs_to :category
 
   has_attached_file :image,
                     :storage => :s3,
@@ -16,10 +17,6 @@ class Badge < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :description, :presence => true
-
-  def self.categories
-    ['Level 1', 'Level 2', 'Educator Innovator']
-  end
 
   def find_code(code)
     claimcodes.each do |claimcode|

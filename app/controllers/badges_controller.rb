@@ -24,12 +24,19 @@ class BadgesController < ApplicationController
 
   def update
     @badge = Badge.find_by_id params[:id]
+    category = Category.find_by_name params[:badge][:category]
+    params[:badge].delete :category
     @badge.update_attributes params[:badge]
+    @badge.category = category
+    @badge.save
     redirect_to badge_path(@badge), notice: "#{@badge.name} was successfully updated."
   end
 
   def create
+    category = Category.find_by_name params[:badge][:category]
+    params[:badge].delete :category
     @badge = Badge.new params[:badge]
+    @badge.category = category
     if @badge.save
       redirect_to badges_path, notice: "#{@badge.name} was successfully created."
     else

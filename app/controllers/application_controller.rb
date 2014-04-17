@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def categories
-    @categories = Badge.categories
+    @categories = Category.names
   end
 
 end

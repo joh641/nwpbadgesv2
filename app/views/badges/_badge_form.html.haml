@@ -9,11 +9,15 @@
 #category.form-group
   = label :badge, :category, 'Category', :class => "control-label reserve-label"
   .reserve-input
-    = select :badge, :category, @categories
+    = select :badge, :category, options_for_select(@categories, selected: (@badge.category ? @badge.category.name : nil))
 #description.form-group
   = label :badge, :description, 'Description', :class => "control-label reserve-label"
   .reserve-input
     = text_area :badge, :description
+#criteria.form-group
+  = label :badge, :criteria, 'Criteria', :class => "control-label reserve-label"
+  .reserve-input
+    = text_area :badge, :criteria
 #claimcode.form-group
   = label :badge, :claimcode, 'Claim Code', :class => "control-label reserve-label"
   .reserve-input

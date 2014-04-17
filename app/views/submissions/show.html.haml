@@ -14,7 +14,7 @@
       #status= @submission.get_status
       %h4 Evidence URL:
       #url= link_to @submission.url, @submission.url
-      %h4 Evidence:
+      %h4 Evidence and How It Meets the Criteria:
       #description= @submission.description
       - if @submission.rejected?
         %h4 Reasons for Rejecting

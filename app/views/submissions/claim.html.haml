@@ -12,9 +12,13 @@
           = label_tag :name, 'Name', :class => "control-label reserve-label"
           .reserve-input
             = text_field_tag :name
-        #name.form-group
+        #email.form-group
           = label_tag :email, 'Email', :class => "control-label reserve-label"
           .reserve-input
             = text_field_tag :email
+        #partner-code.form-group
+          = label_tag :partner_code, 'Partner Code', :class => "control-label reserve-label"
+          .reserve-input
+            = text_field_tag :partner_code
         #submit
           = submit_tag 'Submit', :class => "btn btn-primary"

@@ -39,9 +39,19 @@
                 %p Submissions
 
             %li{:class => "tab"}>
+              = link_to categories_path do
+                %i{:class => "fa fa-book"}
+                %p Categories
+
+            %li{:class => "tab"}>
               = link_to claimcodes_path do
                 %i{:class => "fa fa-barcode"}
                 %p Claim Codes
+
+            %li{:class => "tab"}>
+              = link_to partners_path do
+                %i{:class => "fa fa-group"}
+                %p Partners
 
             %li{:class => "tab"}>
               = link_to users_path do
@@ -62,17 +72,6 @@
                   = link_to "Profile", edit_user_registration_path
                 %li
                   = link_to "Sign out", destroy_user_session_path, :method => :delete
-
-          - else
-            %li{:class => "tab account"}>
-              = link_to new_user_registration_path do
-                %i{:class => "fa fa-user"}
-                %p Sign up
-
-            %li{:class => "tab account"}>
-              = link_to new_user_session_path do
-                %i{:class => "fa fa-book"}
-                %p Log In
 
     - flash.each do |name, msg|
       .flash

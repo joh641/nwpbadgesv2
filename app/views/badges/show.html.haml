@@ -1,11 +1,11 @@
 .container
   .content.row
     .left-column-container.column.col-md-3
-      %h3 Badge Earners
-      %ul
-        - @badge.submissions.each do |submission|
-          - if submission.get_status == 'Approved'
-            %li= submission.name
+      / %h3 Badge Earners
+      / %ul
+      /   - @badge.submissions.each do |submission|
+      /     - if submission.get_status == 'Approved'
+      /       %li= submission.name
       - if is_admin? && @badge.claimcode?
         %h3 Create Claim Code
         = form_tag create_claimcode_badge_path(@badge), :method => :post, :id => 'claimcode_form' do
@@ -23,12 +23,13 @@
       = image_tag @badge.image.url(:medium)
       %h3 Description:
       #description= @badge.description
-      %h3
+      %h3 Criteria:
+      #criteria= @badge.criteria
       - if @badge.claimcode
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
       %hr
       - if !@badge.claimcode && @badge.category != "Educator Innovator"
-        = link_to('Make a submission', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
+        = link_to('Get this Badge', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
       - if is_admin?
         = link_to 'Edit', edit_badge_path, :class => "btn btn-default" 
         = link_to "Delete", badge_path(@badge), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger'

@@ -5,17 +5,25 @@
     = label :submission, :name, 'Name', :class => "control-label reserve-label"
     .reserve-input
       = text_field :submission, :name
-  #name.form-group
+  #email.form-group
     = label :submission, :email, 'Email', :class => "control-label reserve-label"
     .reserve-input
       = text_field :submission, :email
+  #activity.form-group
+    = label :submission, :activity, 'Activity', :class => "control-label reserve-label"
+    .reserve-input
+      = text_field :submission, :activity
   #url.form-group
     = label :submission, :url, 'Evidence URL (must be of form http://URL)', :class => "control-label reserve-label"
     .reserve-input
       = text_field :submission, :url
   #description.form-group
-    = label :submission, :description, 'Evidence', :class => "control-label reserve-label"
+    = label :submission, :description, 'My Evidence and How It Meets the Criteria', :class => "control-label reserve-label"
     .reserve-input
       = text_area :submission, :description
+  #partner-code.form-group
+    = label :submission, :partner_code, "Partner Code", :class => "control-label reserve-label"
+    .reserve-input
+      = text_field :submission, :partner_code
   #submit
     = submit_tag 'Submit', :class => "btn btn-primary"
