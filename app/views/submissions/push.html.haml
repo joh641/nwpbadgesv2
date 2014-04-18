@@ -3,5 +3,11 @@
     = render partial: 'left_column'
     .right-column-container.column.col-md-8
       .header-container.row
-        %h1 Claim Badge
+        %h1 Claim #{@submission.badge.name} Badge
+      = image_tag @submission.badge.image.url(:medium)
+      %h3 Description:
+      #description= @submission.badge.description
+      - unless @submission.badge.claimcode or @submission.badge.category.name == "Educator Innovator"
+        %h3 Criteria:
+        #criteria= @submission.badge.criteria
       = button_to "Click here to claim your badge", %Q{javascript:OpenBadges.issue(["#{ENV['root']}/submissions/#{@submission.id}/assert.json"], function(errors, successes) {});}, :class => "btn btn-primary"
