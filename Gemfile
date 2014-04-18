@@ -37,3 +37,5 @@ gem 'aws-sdk'
 gem 'rmagick'
 
 gem 'best_in_place'
+
+gem 'shareable'
