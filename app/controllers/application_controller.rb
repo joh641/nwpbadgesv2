@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  @@submission = Submission.new
+
   def is_admin?
     current_user && current_user.admin?
   end

@@ -23,13 +23,13 @@
       = image_tag @badge.image.url(:medium)
       %h3 Description:
       #description= @badge.description
-      - unless @badge.claimcode or @badge.category.name == "Educator Innovator"
+      - unless @badge.claimcode || @badge.category.name == "Educator Innovator"
         %h3 Criteria:
         #criteria= @badge.criteria
       - if @badge.claimcode
         .claimcode= render :partial => 'claim_code', :locals => {:badge => @badge}
       %hr
-      - unless @badge.claimcode or @badge.category.name == "Educator Innovator"
+      - unless @badge.claimcode || @badge.category.name == "Educator Innovator"
         = link_to('Get this Badge', submit_badge_path(@badge), :method => :get, :class => 'btn btn-primary')
       - if is_admin?
         = link_to 'Edit', edit_badge_path, :class => "btn btn-default" 

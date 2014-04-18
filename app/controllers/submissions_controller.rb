@@ -16,12 +16,17 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new params[:submission]
     @submission.badge = Badge.find_by_id params[:badge]
     @submission.status = Submission::PENDING
-    if @submission.save
+    if @submission.name == "" || @submission.email == ""
+      flash[:warning] = "Please fill in a name and email"
+      @@submission = @submission
+      redirect_to submit_badge_path(@submission.badge) and return
+    elsif @submission.save
       Notifier.new_submission(@submission).deliver
       redirect_to badges_path, notice: "Your submission was successfully created."
     else
       flash[:warning] = "URL must be of form http://URL"
-      redirect_to :back
+      @@submission = @submission
+      redirect_to submit_badge_path(@submission.badge)
     end
   end
 
@@ -59,6 +64,10 @@ class SubmissionsController < ApplicationController
 
   def claim
     @submission = Submission.find_by_id params[:id]
+    if @submission.name || @submission.email
+      flash[:warning] = "You do not have permission to access"
+      redirect_to root_path and return
+    end
     @badge = @submission.badge
   end
 
@@ -67,6 +76,9 @@ class SubmissionsController < ApplicationController
     if submission.name || submission.email
       flash[:warning] = "You do not have permission to access"
       redirect_to root_path and return
+    elsif params[:name] == "" || params[:email] == ""
+      flash[:warning] = "Please fill in a name and email"
+      redirect_to claim_submission_path(submission)
     else
       submission.name = params[:name]
       submission.email = params[:email]

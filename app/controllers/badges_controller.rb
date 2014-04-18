@@ -9,6 +9,8 @@ class BadgesController < ApplicationController
 
   def submit
     @badge = Badge.find_by_id params[:id]
+    @submission = @@submission
+    @@submission = Submission.new
   end
 
   def index
